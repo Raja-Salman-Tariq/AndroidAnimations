@@ -7,6 +7,53 @@
     android:layout_height="match_parent"
     tools:context=".BarcodeScanning">
 
+    <TextView
+        android:id="@+id/instructions_1"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Locate the Barcode on Book"
+        android:textSize="30sp"
+        android:layout_centerInParent="true"
+        android:layout_alignParentTop="true"
+        android:layout_marginTop="20dp"
+        android:layout_marginRight="8dp"
+        android:layout_marginLeft="8dp"
+        android:textStyle="bold"
+        android:textColor="#000">
+    </TextView>
+
+    <TextView
+        android:id="@+id/instructions_2"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Scan the Barcode"
+        android:textSize="30sp"
+        android:layout_centerInParent="true"
+        android:layout_alignParentTop="true"
+        android:layout_marginTop="20dp"
+        android:layout_marginRight="8dp"
+        android:layout_marginLeft="8dp"
+        android:textStyle="bold"
+        android:textColor="#000"
+        android:visibility="invisible">
+    </TextView>
+
+    <TextView
+        android:id="@+id/instructions_3"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="and you are done"
+        android:textSize="30sp"
+        android:layout_centerInParent="true"
+        android:layout_alignParentTop="true"
+        android:layout_marginTop="20dp"
+        android:layout_marginRight="8dp"
+        android:layout_marginLeft="8dp"
+        android:textStyle="bold"
+        android:textColor="#000"
+        android:visibility="invisible">
+    </TextView>
+
     <ImageView
         android:id="@+id/barcoded_book"
         android:layout_width="wrap_content"
