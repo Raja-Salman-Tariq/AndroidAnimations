@@ -14,6 +14,11 @@ public class MainActivity extends AppCompatActivity {
     TextView tvI, tvS, tvB, tvN, tv1, tv2, tv3, tv4,
                 tv5, tv6, tv7;
 
+    Animation animShelf, animPhn, animAim, animDet,
+                _i, _s, _b, _n, _1, _2;
+
+    ImageView bookshelf, phone, aim, detect;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -21,18 +26,29 @@ public class MainActivity extends AppCompatActivity {
 
         getSupportActionBar().hide();
 
-        Animation animShelf= AnimationUtils.loadAnimation(this, R.anim.bookzoom);
-        Animation animPhn= AnimationUtils.loadAnimation(this, R.anim.phonerising);
-        Animation animAim= AnimationUtils.loadAnimation(this, R.anim.aim_in_out);
-        Animation animDet= AnimationUtils.loadAnimation(this, R.anim.detect_in_out);
 
-        final ImageView bookshelf= findViewById(R.id.bookshelf);
-        final ImageView phone= findViewById(R.id.cellIcon);
-        final ImageView aim= findViewById(R.id.aim);
-        final ImageView detect= findViewById(R.id.detect);
 
-        setTV();
+        loadAnimations();           // load the animation files into relevant animation objects.
 
+        setAnimatables();           // set objects to be animated (animatables) i.e. Img Views
+        setTV();                    // set ISBN textviews for animation within the "phone screen"
+
+        setAnimationListeners();    // listeners for animation objects, needed for synchronization
+                                      // (i.e. views' visibilities)
+
+        setAnimToAnimatables();     // set loaded animations to animatables
+        setAnimToTV();              // set loaded animations for the ISBN textviews
+
+    }
+
+    private void setAnimToAnimatables() {
+        bookshelf.setAnimation(animShelf);
+        phone.setAnimation(animPhn);
+        aim.setAnimation(animAim);
+        detect.setAnimation(animDet);
+    }
+
+    private void setAnimationListeners() {
         animShelf.setAnimationListener(new Animation.AnimationListener() {
             @Override
             public void onAnimationStart(Animation animation) {
@@ -82,23 +98,33 @@ public class MainActivity extends AppCompatActivity {
             }
         });
 
-        bookshelf.setAnimation(animShelf);
-        phone.setAnimation(animPhn);
-        aim.setAnimation(animAim);
-        detect.setAnimation(animDet);
-
-
-        setAnimToTV();
-
     }
 
-    private void setAnimToTV() {
+    private void setAnimatables() {
+        final ImageView bookshelf= findViewById(R.id.bookshelf);
+        final ImageView phone= findViewById(R.id.cellIcon);
+        final ImageView aim= findViewById(R.id.aim);
+        final ImageView detect= findViewById(R.id.detect);
+    }
+
+    private void loadAnimations() {
+        // animations for shelf, phone, etc.
+        Animation animShelf= AnimationUtils.loadAnimation(this, R.anim.bookzoom);
+        Animation animPhn= AnimationUtils.loadAnimation(this, R.anim.phonerising);
+        Animation animAim= AnimationUtils.loadAnimation(this, R.anim.aim_in_out);
+        Animation animDet= AnimationUtils.loadAnimation(this, R.anim.detect_in_out);
+
+        // animation for ISBN textviews
         Animation _i= AnimationUtils.loadAnimation(this,R.anim._i);
         Animation _s= AnimationUtils.loadAnimation(this,R.anim._s);
         Animation _b= AnimationUtils.loadAnimation(this,R.anim._b);
         Animation _n= AnimationUtils.loadAnimation(this,R.anim._n);
         Animation _1= AnimationUtils.loadAnimation(this, R.anim._1);
         Animation _2= AnimationUtils.loadAnimation(this, R.anim._2);
+
+    }
+
+    private void setAnimToTV() {
 
         tv1.setAnimation(_i);
         tv2.setAnimation(_s);
