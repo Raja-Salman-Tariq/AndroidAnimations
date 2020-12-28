@@ -10,7 +10,7 @@ import android.widget.ImageView;
 
 public class BarcodeScanning extends AppCompatActivity {
 
-    Animation bookFadeIn,phoneMovement,barcodeScanning,popUpMovement;
+    Animation bookFadeIn,bookZoom,phoneMovement,barcodeScanning,popUpMovement;
 
     ImageView book,phone,scanningBox,popUp;
 
@@ -33,6 +33,7 @@ public class BarcodeScanning extends AppCompatActivity {
 
     private void loadAnimations() {
         bookFadeIn= AnimationUtils.loadAnimation(this, R.anim.barcoded_book_appear);
+        bookZoom= AnimationUtils.loadAnimation(this, R.anim.barcoded_book_zoom);
         phoneMovement= AnimationUtils.loadAnimation(this, R.anim.phone_movement);
         barcodeScanning= AnimationUtils.loadAnimation(this, R.anim.barcode_scanning);
         popUpMovement= AnimationUtils.loadAnimation(this, R.anim.pop_up_movement);
@@ -61,6 +62,12 @@ public class BarcodeScanning extends AppCompatActivity {
 
             @Override
             public void onAnimationEnd(Animation animation) {
+//                book.setScaleX((float) 0.5);
+//                book.setScaleY((float) 0.5);
+//                book.setPivotX(0);
+//                book.setPivotY(0);
+                book.setAnimation(bookZoom);
+
             }
 
             @Override
@@ -76,7 +83,7 @@ public class BarcodeScanning extends AppCompatActivity {
 
             @Override
             public void onAnimationEnd(Animation animation) {
-
+                phone.setVisibility(View.INVISIBLE);
             }
 
             @Override
@@ -110,7 +117,27 @@ public class BarcodeScanning extends AppCompatActivity {
 
             @Override
             public void onAnimationEnd(Animation animation) {
+                popUp.setVisibility(View.INVISIBLE);
+            }
 
+            @Override
+            public void onAnimationRepeat(Animation animation) {
+
+            }
+        });
+
+        bookZoom.setAnimationListener(new Animation.AnimationListener() {
+            @Override
+            public void onAnimationStart(Animation animation) {
+
+            }
+
+            @Override
+            public void onAnimationEnd(Animation animation) {
+                book.setScaleX((float) 0);
+                book.setScaleY((float) 0);
+//                book.setPivotX(0);
+//                book.setPivotY(0);
             }
 
             @Override

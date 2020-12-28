@@ -12,7 +12,11 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_centerInParent="true"
-        android:src="@drawable/ic_barcoded_book">
+        android:src="@drawable/ic_barcoded_book"
+        android:scaleX="0.5"
+        android:scaleY="0.5"
+        android:transformPivotX="0dp"
+        android:translationY="0dp">
 
     </ImageView>
 

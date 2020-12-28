@@ -16,4 +16,12 @@
 
     </translate>
 
+    <alpha
+        android:startOffset="12500"
+        android:fromAlpha="1.0"
+        android:toAlpha="0.0"
+        android:duration="1000">
+
+    </alpha>
+
 </set>
