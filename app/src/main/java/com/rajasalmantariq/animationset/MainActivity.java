@@ -101,7 +101,7 @@ public class MainActivity extends AppCompatActivity {
         Animation _2= AnimationUtils.loadAnimation(this, R.anim._2);
 
         tv1.setAnimation(_i);
-        tv2.setAnimation(_s);gr
+        tv2.setAnimation(_s);
         tv3.setAnimation(_b);
         tv4.setAnimation(_n);
         tv5.setAnimation(_1);
