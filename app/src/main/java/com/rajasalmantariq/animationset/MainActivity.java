@@ -2,6 +2,7 @@ package com.rajasalmantariq.animationset;
 
 import androidx.appcompat.app.AppCompatActivity;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
 import android.view.animation.Animation;
@@ -25,8 +26,6 @@ public class MainActivity extends AppCompatActivity {
         setContentView(R.layout.activity_main);
 
         getSupportActionBar().hide();
-
-
 
         loadAnimations();           // load the animation files into relevant animation objects.
 
@@ -101,26 +100,26 @@ public class MainActivity extends AppCompatActivity {
     }
 
     private void setAnimatables() {
-        final ImageView bookshelf= findViewById(R.id.bookshelf);
-        final ImageView phone= findViewById(R.id.cellIcon);
-        final ImageView aim= findViewById(R.id.aim);
-        final ImageView detect= findViewById(R.id.detect);
+        bookshelf= findViewById(R.id.bookshelf);
+        phone= findViewById(R.id.cellIcon);
+        aim= findViewById(R.id.aim);
+        detect= findViewById(R.id.detect);
     }
 
     private void loadAnimations() {
         // animations for shelf, phone, etc.
-        Animation animShelf= AnimationUtils.loadAnimation(this, R.anim.bookzoom);
-        Animation animPhn= AnimationUtils.loadAnimation(this, R.anim.phonerising);
-        Animation animAim= AnimationUtils.loadAnimation(this, R.anim.aim_in_out);
-        Animation animDet= AnimationUtils.loadAnimation(this, R.anim.detect_in_out);
+        animShelf= AnimationUtils.loadAnimation(this, R.anim.bookzoom);
+        animPhn= AnimationUtils.loadAnimation(this, R.anim.phonerising);
+        animAim= AnimationUtils.loadAnimation(this, R.anim.aim_in_out);
+        animDet= AnimationUtils.loadAnimation(this, R.anim.detect_in_out);
 
         // animation for ISBN textviews
-        Animation _i= AnimationUtils.loadAnimation(this,R.anim._i);
-        Animation _s= AnimationUtils.loadAnimation(this,R.anim._s);
-        Animation _b= AnimationUtils.loadAnimation(this,R.anim._b);
-        Animation _n= AnimationUtils.loadAnimation(this,R.anim._n);
-        Animation _1= AnimationUtils.loadAnimation(this, R.anim._1);
-        Animation _2= AnimationUtils.loadAnimation(this, R.anim._2);
+        _i= AnimationUtils.loadAnimation(this,R.anim._i);
+        _s= AnimationUtils.loadAnimation(this,R.anim._s);
+        _b= AnimationUtils.loadAnimation(this,R.anim._b);
+        _n= AnimationUtils.loadAnimation(this,R.anim._n);
+        _1= AnimationUtils.loadAnimation(this, R.anim._1);
+        _2= AnimationUtils.loadAnimation(this, R.anim._2);
 
     }
 

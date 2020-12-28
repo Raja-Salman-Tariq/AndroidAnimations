@@ -1,0 +1,55 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".BarcodeScanning">
+
+    <ImageView
+        android:id="@+id/barcoded_book"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_centerInParent="true"
+        android:src="@drawable/ic_barcoded_book">
+
+    </ImageView>
+
+    <ImageView
+        android:id="@+id/scanning"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/barcoded_book"
+        android:layout_alignParentRight="true"
+        android:translationX="-112sp"
+        android:translationY="-63sp"
+        android:src="@drawable/ic_scanning">
+
+    </ImageView>
+
+    <ImageView
+        android:id="@+id/cellIcon_barcode_scanning"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentBottom="true"
+        android:layout_alignParentRight="true"
+        android:layout_marginBottom="50sp"
+        android:translationX="20sp"
+        android:src="@drawable/ic_phone">
+
+    </ImageView>
+
+    <ImageView
+        android:id="@+id/pop_up"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentRight="true"
+        android:layout_alignParentBottom="true"
+        android:layout_marginRight="95sp"
+        android:layout_marginBottom="160sp"
+        android:src="@drawable/ic_pop_up"
+        android:translationX="20sp">
+    </ImageView>
+
+</RelativeLayout>
