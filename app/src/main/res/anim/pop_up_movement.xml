@@ -5,12 +5,12 @@
         android:startOffset="10500"
         android:fromAlpha="0.0"
         android:toAlpha="1.0"
-        android:duration="500">
+        android:duration="1000">
     </alpha>
 
     <translate
         android:startOffset="10500"
-        android:fromYDelta="80%"
+        android:fromYDelta="30%"
         android:duration="1500"
         android:toYDelta="0%">
     </translate>

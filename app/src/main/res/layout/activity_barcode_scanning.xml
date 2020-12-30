@@ -97,8 +97,8 @@
         android:layout_height="wrap_content"
         android:layout_alignParentRight="true"
         android:layout_alignParentBottom="true"
-        android:layout_marginRight="95sp"
-        android:layout_marginBottom="160sp"
+        android:layout_marginRight="60sp"
+        android:layout_marginBottom="90sp"
         android:src="@drawable/ic_pop_up"
         android:translationX="20sp">
     </ImageView>
