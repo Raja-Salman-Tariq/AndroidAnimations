@@ -5,19 +5,12 @@
         android:startOffset="1000"
         android:fromAlpha="0.0"
         android:toAlpha="1.0"
-        android:duration="1000">
-    </alpha>
-
-    <translate
-        android:startOffset="3000"
-        android:fromYDelta="75%"
-        android:duration="2000"
-        android:toYDelta="0%"/>
+        android:duration="1000"/>
 
     <alpha
-        android:startOffset="12500"
+        android:startOffset="8500"
         android:fromAlpha="1.0"
         android:toAlpha="0.0"
-        android:duration="1000">
-    </alpha>
+        android:duration="900"/>
+
 </set>

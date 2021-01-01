@@ -4,6 +4,7 @@ import androidx.appcompat.app.AppCompatActivity;
 
 import android.content.Intent;
 import android.os.Bundle;
+import android.util.DisplayMetrics;
 import android.view.View;
 import android.view.animation.Animation;
 import android.view.animation.AnimationUtils;
@@ -12,13 +13,14 @@ import android.widget.TextView;
 
 public class MainActivity extends AppCompatActivity {
 
-    TextView tvI, tvS, tvB, tvN, tv1, tv2, tv3, tv4,
-                tv5, tv6, tv7;
+    TextView isbn, detectedIsbn;
 
-    Animation animShelf, animPhn, animAim, animDet,
-                _i, _s, _b, _n, _1, _2;
+    TextView aim, detect;
 
-    ImageView bookshelf, phone, aim, detect;
+    Animation animPhn, animAim, animDet, animBook,
+                animIsbn, animScanning, animPopup, animScanned;
+
+    ImageView phone, book, scanner, popup;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -27,28 +29,33 @@ public class MainActivity extends AppCompatActivity {
 
         getSupportActionBar().hide();
 
-        loadAnimations();           // load the animation files into relevant animation objects.
 
         setAnimatables();           // set objects to be animated (animatables) i.e. Img Views
-        setTV();                    // set ISBN textviews for animation within the "phone screen"
+
+
+        loadAnimations();           // load the animation files into relevant animation objects.
+
 
         setAnimationListeners();    // listeners for animation objects, needed for synchronization
                                       // (i.e. views' visibilities)
 
         setAnimToAnimatables();     // set loaded animations to animatables
-        setAnimToTV();              // set loaded animations for the ISBN textviews
 
     }
 
     private void setAnimToAnimatables() {
-        bookshelf.setAnimation(animShelf);
         phone.setAnimation(animPhn);
         aim.setAnimation(animAim);
         detect.setAnimation(animDet);
+        book.setAnimation(animBook);
+        isbn.setAnimation(animIsbn);
+        scanner.setAnimation(animScanning);
+        popup.setAnimation(animPopup);
+        detectedIsbn.setAnimation(animScanned);
     }
 
     private void setAnimationListeners() {
-        animShelf.setAnimationListener(new Animation.AnimationListener() {
+        animScanned.setAnimationListener(new Animation.AnimationListener() {
             @Override
             public void onAnimationStart(Animation animation) {
 
@@ -56,7 +63,7 @@ public class MainActivity extends AppCompatActivity {
 
             @Override
             public void onAnimationEnd(Animation animation) {
-                bookshelf.setVisibility(View.INVISIBLE);
+                detectedIsbn.setVisibility(View.INVISIBLE);
             }
 
             @Override
@@ -64,6 +71,59 @@ public class MainActivity extends AppCompatActivity {
 
             }
         });
+
+        animPopup.setAnimationListener(new Animation.AnimationListener() {
+            @Override
+            public void onAnimationStart(Animation animation) {
+
+            }
+
+            @Override
+            public void onAnimationEnd(Animation animation) {
+                popup.setVisibility(View.INVISIBLE);
+                phone.setVisibility(View.INVISIBLE);
+                startActivity(new Intent(MainActivity.this, BarcodeScanning.class));
+            }
+
+            @Override
+            public void onAnimationRepeat(Animation animation) {
+
+            }
+        });
+
+        animIsbn.setAnimationListener(new Animation.AnimationListener() {
+            @Override
+            public void onAnimationStart(Animation animation) {
+
+            }
+
+            @Override
+            public void onAnimationEnd(Animation animation) {
+                isbn.setVisibility(View.INVISIBLE);
+            }
+
+            @Override
+            public void onAnimationRepeat(Animation animation) {
+
+            }
+        });
+
+        animPhn.setAnimationListener(new Animation.AnimationListener() {
+            @Override
+            public void onAnimationStart(Animation animation) {
+
+            }
+
+            @Override
+            public void onAnimationEnd(Animation animation) {
+            }
+
+            @Override
+            public void onAnimationRepeat(Animation animation) {
+
+            }
+        });
+
         animAim.setAnimationListener(new Animation.AnimationListener() {
             @Override
             public void onAnimationStart(Animation animation) {
@@ -97,58 +157,51 @@ public class MainActivity extends AppCompatActivity {
             }
         });
 
+        animBook.setAnimationListener(new Animation.AnimationListener() {
+            @Override
+            public void onAnimationStart(Animation animation) {
+
+            }
+
+            @Override
+            public void onAnimationEnd(Animation animation) {
+//                book.setVisibility(View.VISIBLE);
+            }
+
+            @Override
+            public void onAnimationRepeat(Animation animation) {
+
+            }
+        });
+
     }
 
     private void setAnimatables() {
-        bookshelf= findViewById(R.id.bookshelf);
+        book=findViewById(R.id.book);
+        book.setVisibility(View.INVISIBLE);
         phone= findViewById(R.id.cellIcon);
+        isbn=findViewById(R.id.isbn);
+        isbn.setVisibility(View.INVISIBLE);
+        scanner=findViewById(R.id.isdnscan);
+        scanner.setVisibility(View.INVISIBLE);
         aim= findViewById(R.id.aim);
         detect= findViewById(R.id.detect);
+        popup=findViewById(R.id.popup);
+        popup.setVisibility(View.INVISIBLE);
+        detectedIsbn=findViewById(R.id.isbndet);
+        detectedIsbn.setVisibility(View.INVISIBLE);
+
     }
 
     private void loadAnimations() {
-        // animations for shelf, phone, etc.
-        animShelf= AnimationUtils.loadAnimation(this, R.anim.bookzoom);
         animPhn= AnimationUtils.loadAnimation(this, R.anim.phonerising);
         animAim= AnimationUtils.loadAnimation(this, R.anim.aim_in_out);
         animDet= AnimationUtils.loadAnimation(this, R.anim.detect_in_out);
-
-        // animation for ISBN textviews
-        _i= AnimationUtils.loadAnimation(this,R.anim._i);
-        _s= AnimationUtils.loadAnimation(this,R.anim._s);
-        _b= AnimationUtils.loadAnimation(this,R.anim._b);
-        _n= AnimationUtils.loadAnimation(this,R.anim._n);
-        _1= AnimationUtils.loadAnimation(this, R.anim._1);
-        _2= AnimationUtils.loadAnimation(this, R.anim._2);
-
+        animBook= AnimationUtils.loadAnimation(this, R.anim.isbnbook);
+        animIsbn= AnimationUtils.loadAnimation(this, R.anim.isbnbook);
+        animScanning= AnimationUtils.loadAnimation(this, R.anim.detect_in_out_isbn);
+        animPopup= AnimationUtils.loadAnimation(this, R.anim.pop_up_movement);
+        animScanned= AnimationUtils.loadAnimation(this, R.anim.scannedisbn);
     }
 
-    private void setAnimToTV() {
-
-        tv1.setAnimation(_i);
-        tv2.setAnimation(_s);
-        tv3.setAnimation(_b);
-        tv4.setAnimation(_n);
-        tv5.setAnimation(_1);
-        tv6.setAnimation(_2);
-        tv7.setAnimation(_i);
-        tvI.setAnimation(_n);
-        tvS.setAnimation(_s);
-        tvB.setAnimation(_2);
-        tvN.setAnimation(_n);
-    }
-
-    private void setTV() {
-        tvI=findViewById(R.id.tvI);
-                tvS= findViewById(R.id.tvS);
-                tvB= findViewById(R.id.tvB);
-                tvN= findViewById(R.id.tvN);
-                tv1= findViewById(R.id.tv1);
-                tv2= findViewById(R.id.tv2);
-                tv3= findViewById(R.id.tv3);
-                tv4= findViewById(R.id.tv4);
-                tv5= findViewById(R.id.tv5);
-                tv6= findViewById(R.id.tv6);
-                tv7= findViewById(R.id.tv7);
-    }
 }
