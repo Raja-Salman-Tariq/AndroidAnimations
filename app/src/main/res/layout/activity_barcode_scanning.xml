@@ -112,7 +112,7 @@
         android:background="@drawable/ic_scanning"
         app:layout_constraintBottom_toTopOf="@+id/pop_up"
         app:layout_constraintEnd_toEndOf="@+id/pop_up"
-        app:layout_constraintHorizontal_bias="0.352"
+        app:layout_constraintHorizontal_bias="0.466"
         app:layout_constraintStart_toStartOf="@+id/pop_up"
         app:layout_constraintTop_toTopOf="@+id/cellIcon_barcode_scanning"
         app:layout_constraintVertical_bias="0.543" />
