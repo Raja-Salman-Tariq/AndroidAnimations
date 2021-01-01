@@ -10,9 +10,9 @@
 
     <translate
         android:startOffset="10500"
-        android:fromYDelta="20%"
+        android:fromYDelta="-30%"
         android:duration="1500"
-        android:toYDelta="0%">
+        android:toYDelta="-60%">
     </translate>
 
     <alpha

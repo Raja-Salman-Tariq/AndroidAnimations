@@ -1,6 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
-<RelativeLayout
-    xmlns:android="http://schemas.android.com/apk/res/android"
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
@@ -9,98 +8,114 @@
 
     <TextView
         android:id="@+id/instructions_1"
-        android:layout_width="wrap_content"
+        android:layout_width="0dp"
         android:layout_height="wrap_content"
-        android:text="Locate the Barcode on Book"
-        android:textSize="30sp"
-        android:layout_centerInParent="true"
         android:layout_alignParentTop="true"
-        android:layout_marginTop="20dp"
-        android:layout_marginRight="8dp"
-        android:layout_marginLeft="8dp"
+        android:layout_centerInParent="true"
+        android:gravity="center_horizontal"
+        android:paddingTop="20dp"
+        android:text="Locate the Barcode on Book"
+        android:textAlignment="center"
+        android:textColor="#000"
+        android:textSize="25sp"
         android:textStyle="bold"
-        android:textColor="#000">
-    </TextView>
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"></TextView>
 
     <TextView
         android:id="@+id/instructions_2"
-        android:layout_width="wrap_content"
+        android:layout_width="0dp"
         android:layout_height="wrap_content"
-        android:text="Scan the Barcode"
-        android:textSize="30sp"
-        android:layout_centerInParent="true"
         android:layout_alignParentTop="true"
-        android:layout_marginTop="20dp"
-        android:layout_marginRight="8dp"
-        android:layout_marginLeft="8dp"
-        android:textStyle="bold"
+        android:layout_centerInParent="true"
+        android:paddingTop="20dp"
+        android:text="Scan the Barcode"
+        android:textAlignment="center"
         android:textColor="#000"
-        android:visibility="invisible">
-    </TextView>
+        android:textSize="25sp"
+        android:textStyle="bold"
+        android:visibility="invisible"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        android:gravity="center_horizontal"></TextView>
 
     <TextView
         android:id="@+id/instructions_3"
-        android:layout_width="wrap_content"
+        android:layout_width="0dp"
         android:layout_height="wrap_content"
-        android:text="and you are done"
-        android:textSize="30sp"
-        android:layout_centerInParent="true"
         android:layout_alignParentTop="true"
-        android:layout_marginTop="20dp"
-        android:layout_marginRight="8dp"
-        android:layout_marginLeft="8dp"
-        android:textStyle="bold"
+        android:layout_centerInParent="true"
+        android:paddingTop="20dp"
+        android:text="and you are done"
+        android:textAlignment="center"
         android:textColor="#000"
-        android:visibility="invisible">
-    </TextView>
+        android:textSize="25sp"
+        android:textStyle="bold"
+        android:visibility="invisible"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.497"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        android:gravity="center_horizontal"></TextView>
 
     <ImageView
         android:id="@+id/barcoded_book"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_centerInParent="true"
-        android:src="@drawable/ic_barcoded_book"
         android:scaleX="0.5"
         android:scaleY="0.5"
+        android:src="@drawable/ic_barcoded_book"
         android:transformPivotX="0dp"
-        android:translationY="0dp">
+        android:translationY="0dp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent">
 
     </ImageView>
 
-    <ImageView
-        android:id="@+id/scanning"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_below="@+id/barcoded_book"
-        android:layout_alignParentRight="true"
-        android:translationX="-112sp"
-        android:translationY="-63sp"
-        android:src="@drawable/ic_scanning">
-
-    </ImageView>
-
-    <ImageView
-        android:id="@+id/cellIcon_barcode_scanning"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_alignParentBottom="true"
-        android:layout_alignParentRight="true"
-        android:layout_marginBottom="50sp"
-        android:translationX="20sp"
-        android:src="@drawable/ic_phone">
-
-    </ImageView>
 
     <ImageView
         android:id="@+id/pop_up"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:src="@drawable/ic_pop_up"
+        app:layout_constraintBottom_toBottomOf="@+id/cellIcon_barcode_scanning"
+        app:layout_constraintEnd_toEndOf="@+id/cellIcon_barcode_scanning"
+        app:layout_constraintHorizontal_bias="0.75"
+        app:layout_constraintStart_toStartOf="@+id/cellIcon_barcode_scanning" />
+
+    <ImageView
+        android:id="@+id/cellIcon_barcode_scanning"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
         android:layout_alignParentRight="true"
         android:layout_alignParentBottom="true"
-        android:layout_marginRight="60sp"
-        android:layout_marginBottom="90sp"
-        android:src="@drawable/ic_pop_up"
-        android:translationX="20sp">
+        android:src="@drawable/cellicon"
+        android:translationX="50dp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.723">
+
     </ImageView>
 
-</RelativeLayout>
+    <ImageView
+        android:id="@+id/scanning"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        android:layout_above="@+id/pop_up"
+        android:src="@drawable/ic_scanning"
+        android:padding="65dp"
+        android:layout_marginTop="180dp"
+        app:layout_constraintBottom_toTopOf="@+id/pop_up"
+        app:layout_constraintEnd_toEndOf="@+id/pop_up"
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintStart_toStartOf="@+id/pop_up"
+        app:layout_constraintTop_toTopOf="@+id/cellIcon_barcode_scanning"
+        app:layout_constraintVertical_bias="1.0" />
+
+</androidx.constraintlayout.widget.ConstraintLayout>

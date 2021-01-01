@@ -4,6 +4,7 @@ import androidx.appcompat.app.AppCompatActivity;
 
 import android.os.Bundle;
 import android.view.View;
+import android.view.WindowManager;
 import android.view.animation.Animation;
 import android.view.animation.AnimationUtils;
 import android.widget.ImageView;
@@ -21,6 +22,8 @@ public class BarcodeScanning extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_barcode_scanning);
+        getWindow().setFlags(WindowManager.LayoutParams.FLAG_FULLSCREEN, WindowManager.LayoutParams.FLAG_FULLSCREEN);
+
         getSupportActionBar().hide();
 
         loadAnimations();       // load the animation files into relevant animation objects.
@@ -39,7 +42,7 @@ public class BarcodeScanning extends AppCompatActivity {
         bookZoom= AnimationUtils.loadAnimation(this, R.anim.barcoded_book_zoom);
         phoneMovement= AnimationUtils.loadAnimation(this, R.anim.phone_movement);
         barcodeScanning= AnimationUtils.loadAnimation(this, R.anim.barcode_scanning);
-        popUpMovement= AnimationUtils.loadAnimation(this, R.anim.pop_up_movement);
+        popUpMovement= AnimationUtils.loadAnimation(this, R.anim.pop_up_movement_barcode);
         instructionFade_1= AnimationUtils.loadAnimation(this, R.anim.instruction_fade);
         instructionFade_2= AnimationUtils.loadAnimation(this, R.anim.instruction_fade_2);
         instructionFade_3= AnimationUtils.loadAnimation(this, R.anim.instruction_fade_3);
